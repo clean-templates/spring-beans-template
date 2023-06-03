@@ -1,6 +1,6 @@
 package com.rolandsall.payment.service.api.api;
 
-import com.rolandsall.payment.service.api.core.Payment;
+import com.rolandsall.payment.library.Payment;
 import com.rolandsall.payment.service.api.core.resolver.IPaymentResolver;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +20,6 @@ public class PaymentController {
     }
 
     private Payment getPayment(PaymentRequest request) {
-        return Payment.builder().owner(request.getOwner()).price(request.getPrice()).build();
+        return new Payment(request.getOwner(), request.getPrice());
     }
 }

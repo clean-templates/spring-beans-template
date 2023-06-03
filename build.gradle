@@ -22,6 +22,10 @@ dependencies {
 
     testCompileOnly 'org.projectlombok:lombok:1.18.28'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+
+    implementation project(':my-custom-payement')
+
 }
 
 tasks.named('test') {

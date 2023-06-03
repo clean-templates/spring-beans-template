@@ -1,7 +1,7 @@
 package com.rolandsall.payment.service.api.core.resolver;
 
 
-import com.rolandsall.payment.service.api.core.Payment;
+import com.rolandsall.payment.library.Payment;
 
 public interface IPaymentResolver {
 

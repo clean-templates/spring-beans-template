@@ -1,0 +1,28 @@
+package com.rolandsall.payment.service.api.core.resolver;
+
+import com.rolandsall.payment.service.api.core.Payment;
+import com.rolandsall.payment.service.api.core.payment.IPayService;
+import lombok.AllArgsConstructor;
+
+import java.util.List;
+
+@AllArgsConstructor
+public class PaymentResolver implements IPaymentResolver{
+
+
+    private List<IPayService> providers;
+
+    @Override
+    public void checkout(String provider, Payment payment) {
+        IPayService providerService = resolveProvider(provider);
+        providerService.checkout(payment);
+
+    }
+
+    private IPayService resolveProvider(String provider) {
+        return providers.stream()
+                .filter(iPayService -> iPayService.getClass().toString().contains(provider))
+                .findFirst()
+                .orElseThrow(() -> new ProviderNotFoundException(provider));
+    }
+}

@@ -21,6 +21,7 @@ public class PaymentResolver implements IPaymentResolver{
 
     }
 
+
     private IPayService resolveProvider(String provider) {
         return providers.stream()
                 .filter(iPayService -> iPayService.getClass().toString().contains(provider))

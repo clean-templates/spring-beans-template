@@ -3,11 +3,9 @@ package com.rolandsall.spring.beans.template.core.resolver;
 import com.rolandsall.spring.beans.template.core.Payment;
 import com.rolandsall.spring.beans.template.core.payment.IPayService;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 @AllArgsConstructor
 public class PaymentResolver implements IPaymentResolver{
 
